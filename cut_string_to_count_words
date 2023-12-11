@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+
+int main(){
+	char str[5555];
+	char c;
+	char *word;
+	int i = 0;
+	int c_count = 0;
+	int w_count = 0;
+	
+	printf("start typing : (^Z to end)\n");
+	
+	while((c = getchar())!= EOF){
+		str[i++]=c;
+	}
+	
+	for(int j = 0; str[j] != '\0'; j++){
+		c_count++;
+	}
+	
+	word = strtok(str, " ");
+	while(word != NULL){
+		w_count++;
+		word = strtok(str, NULL);
+	}
+	
+	
+	printf("the number of cs : %d\n", c_count);
+	printf("the number of ws : %d\n", w_count);
+	
+	
+	return 0;
+}
